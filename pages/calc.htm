@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <link rel="stylesheet" href="../src/input.css" />
+    <link rel="stylesheet" href="../src/output.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <title>Saytın Qiymətini Öyrən | Sayt Kalkulyatoru</title>
+    <style>
+        .umFixed:hover #xMark{
+            display: flex;
+        }
+    </style>
+</head>
+<body >
+
+    <div class="umFixed fixed bottom-[20px] right-[20px] cursor-pointer z-999">
+        <div class=" bg-[#a271f2] flex justify-center items-center w-[60px] h-[60px] rounded-[50%]">
+            <img width="32px" height="32px" src="../img/whiteOne.png" >
+        </div>
+    </div>
+    <div class="umFixed fixed bottom-[50px] right-[0px] cursor-pointer z-999">
+        <div onclick="yigisdir(this)" id="xMark" class=" hidden justify-end mb-[10px]">
+            <i class="text-[20px] fa-solid fa-xmark"></i>
+        </div>
+        <img  src="../img/el.svg" class="scale-[1.5] w-[124px] h-[49px]">
+    </div>
+
+    <nav class="sticky  top-0 bg-white z-[999] p-[24px] border-t-[#e7e7e9] border-t flex justify-between items-center">
+        <a href="../index.htm"><img class="w-[114px] h-[34.8px]" src="../img/saytaz.svg" alt="logo" /></a>
+        <ul class="desk:flex-row hidden desk:flex font-[800] text-[16px] font-[Manrope] text-[#300B60] ">
+            <li onclick="etrafli(ulArr2[0])" class=" relative cursor-pointer  rounded-[8px] px-[12px] py-[8px] flex gap-1.5 items-center group"><span class="group-hover:text-[#7d3be2]">Veb sayt</span> <i class="group-hover:text-[#7d3be2] fa-solid text-inherit   fa-angle-down font-bold  text-[14px] "></i>
+                <ul id="bir"  class="ulNav hidden z-30 min-w-[348px] max-h-[500px]  absolute left-[-100px] top-[100%] border-[#e2e8f0] border rounded-[8px] bg-white cursor-pointer overflow-y-scroll overflow-hidden">
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/website-program.svg"/>
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Saytların hazırlanması</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Veb saytlarının hazırlanması</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/dom.svg" alt=""/>
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Hökümət və qeyri-kommersiya saytları</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Hökümət və qeyri-kommersiya saytları</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/bag.svg"/>
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Kiçik biznes saytları</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Kiçik bizneslər üçün saytlar</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/cart.svg" />
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">E-ticarət saytları</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">E-ticarət saytları</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/terez.svg" />
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Hüquq firma saytı</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Hüquq firma saytı</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/calc.svg" />
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Bloqlar və Şəxsi Vebsayt</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Bloqlar və Şəxsi Vebsayt</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/heyetEvi.svg"/>
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Daşınmaz əmlak veb saytı</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Daşınmaz əmlak veb saytı</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/tibb.svg"/>
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Tibb - Doktor Saytlar</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Tibb Doktor Saytlar</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/press.svg"/>
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">WordPress Saytları</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">WordPress Saytları</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li onclick="etrafli(ulArr2[1])" class=" relative cursor-pointer rounded-[8px] px-[12px] py-[8px] flex gap-1.5 items-center group"><span class="group-hover:text-[#7d3be2]">Domen</span> <i class="group-hover:text-[#7d3be2] fa-solid text-inherit   fa-angle-down font-bold  text-[14px] "></i>
+                <ul  class="ulNav hidden z-29 min-w-[348px] max-h-[500px]  absolute left-[-100px] top-[100%] border-[#e2e8f0] border rounded-[8px] bg-white cursor-pointer  overflow-hidden">
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/network-browser.svg" />
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Domen</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Etibarlı xidmət</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/network-www.svg" />
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Pulsuz Domen Qeydiyyatı</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Sürətli qeydiyyat</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li onclick="etrafli(ulArr2[2])" class=" relative cursor-pointer  rounded-[8px] px-[12px] py-[8px] flex gap-1.5 items-center group"><span class="group-hover:text-[#7d3be2]">Hostinq</span> <i class="group-hover:text-[#7d3be2] fa-solid text-inherit   fa-angle-down font-bold  text-[14px] "></i>
+                <ul  class="ulNav hidden z-28 min-w-[348px] max-h-[500px] absolute left-[-100px] top-[100%] border-[#e2e8f0] border rounded-[8px] bg-white cursor-pointer  overflow-hidden">
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/hosting-icon.svg" />
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Veb Hostinq</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">₼10.OO/ay-dan başlayaraq</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28" src="../img/vps-icon.svg" />
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">VPS</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">₼15.OO/ay-dan başlayaraq</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/server-icon.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Server</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">99.OO/ay-dan başlayaraq</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li onclick="etrafli(ulArr2[3])" class=" relative cursor-pointer  rounded-[8px] px-[12px] py-[8px] flex gap-1.5 items-center group"><span class="group-hover:text-[#7d3be2]">Xidmətlər</span> <i class="group-hover:text-[#7d3be2] fa-solid text-inherit   fa-angle-down font-bold  text-[14px] "></i>
+                <ul class="ulNav hidden z-27 min-w-[348px] max-h-[500px]  absolute left-[-100px] top-[100%] border-[#e2e8f0] border rounded-[8px] bg-white cursor-pointer  overflow-hidden">
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/order-track.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Vebsayt sifarişinizi izləyin</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Sifarişinizi asanlıqla izləyin</p>
+                        </div>
+                    </li>
+                    <a href="calc.htm"><li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/calculator.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Sayt Kalkulyatoru</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Saytın Qiymətini Öyrən</p>
+                        </div>
+                    </li></a>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/seo.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">SEO Xidməti</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Axtarış Sistemi Optimizasiyası</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/mobile.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Mobil Tətbiqlərin Hazırlanması</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Mobil tətbiq xidməti</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/qaynarXett.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Texniki Xidmət</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Texniki Xidmət</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/gromko.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Sosial Media Marketinq</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Sosial Media Marketinq</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li onclick="etrafli(ulArr2[4])" class=" relative cursor-pointer  rounded-[8px] px-[12px] py-[8px] flex gap-1.5 items-center group"><span class="group-hover:text-[#7d3be2]">Şirkət</span> <i class="group-hover:text-[#7d3be2] fa-solid text-inherit   fa-angle-down font-bold  text-[14px] "></i>
+                <ul id="bes" class="ulNav hidden z-26 min-w-[348px] max-h-[400px]  absolute left-[-100px] top-[100%] border-[#e2e8f0] border rounded-[8px] bg-white cursor-pointer overflow-y-scroll overflow-hidden">
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/about-icon.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Haqqımızda</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Bizim komanda üzvlərimiz</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/blog-icon.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Bloq</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Ən son xəbərlər və faydalı məlumatlar</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/cpu.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Bütün StartUplar</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Startupları idarə edin komandamıza qoşulun</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/portfolio-icon.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Portfolio</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Hazırladığımız hər bir iş bizim üçün dəyərlidir</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/career-icon.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Karyera</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Hazırki vakansiyalarımız</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/note-icon.svg" >
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Freelance</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Sizdə qeydiyyatdan keçməklə freelance işləyə bilərsiz</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-[16px] py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                        <div class="p-[12px] bg-[#dbeafe] rounded-[8px] ">
+                            <img width="28" height="28"  src="../img/contact-icon.svg" />
+                        </div>
+                        <div>
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Əlaqə Forması</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Əlaqə Saxlayın</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="flex items-center  gap-[20px]">
+            <span onclick="daha(currency1,flags1,rotate1,rotate2,valAna1,val2.innerHTML==valAna1.innerHTML?val2:val1,val2.innerHTML==valAna1.innerHTML?val1:val2)" class="flex items-center cursor-pointer relative">
+                <span id="valAna1" class="text-[#300b60] text-[22px] font-bold font-[Manrope] mr-1.5">₼</span>
+                <i id="rotate1" class="duration-300 ease-linear text-[#e3e1e1]  fa-solid fa-angle-down font-bold hover:text-[#999999]  text-[16px] pt-0.5"></i>
+                <ul id="currency1" class="hidden w-[60px] absolute left-0 top-[120%] border border-[#e7e7e9] overflow-hidden rounded-[5px] shadow-[0_0_5px_#e7e7e9]">
+                    <li id="val1" onclick="deyisValyuta(valAna1,this,val2)" class="px-[18px] py-[10px] text-[#300b60] text-[18px] font-bold font-[Manrope]">$</li>
+                    <li id="val2" onclick="deyisValyuta(valAna1,this,val1)" class="px-[18px] py-[10px] text-[#300b60] text-[18px] font-bold font-[Manrope]">₼</li>
+                </ul>
+            </span>
+            <span onclick="daha(flags1,currency1,rotate2,rotate1,imgAna1,imgLi2.src==imgAna1.src?bayr2:bayr1, imgLi2.src==imgAna1.src?bayr1:bayr2)" class="flex items-center cursor-pointer relative">
+                <img id="imgAna1" src="../img/azFlag.png" width="20" height="16" class="pt-1.5 mr-1.5" />
+                <i id="rotate2" class="duration-300 ease-linear text-[#e3e1e1]  fa-solid fa-angle-down font-bold hover:text-[#999999]  text-[16px] pt-0.5"></i>
+                <ul id="flags1" class="hidden w-[60px] absolute left-0 top-[120%] border border-[#e7e7e9] overflow-hidden rounded-[5px] shadow-[0_0_5px_#e7e7e9]">
+                    <li id="bayr1" onclick="deyisSekil(imgAna1,imgLi1,bayr2)" class="px-[18px] py-[10px]"><img id="imgLi1" src="../img/usa.png" width="26"/></li>
+                    <li id="bayr2" onclick="deyisSekil(imgAna1,imgLi2,bayr1)" class="px-[18px] py-[10px]"><img id="imgLi2" src="../img/azFlag.png" width="26" /></li>
+                </ul>
+            </span>
+            <img onclick="sideBariAc()" src="../img/bars.svg" width="16.5 fill-[#374151]" class="desk1:hidden pt-1.5 cursor-pointer" alt="bar" />
+            <button class="hidden desk1:block  px-[24px] py-[9px] font-[700] font-[Manrope] rounded-[8px] cursor-pointer text-[white] bg-gradient-to-r from-[#7028e4] to-[#e5b2ca]">Qiymət Təklifi Al</button>
+            <button class="hidden desk1:block  px-[24px] py-[9px] font-[700] font-[Manrope] rounded-[8px] cursor-pointer text-[#a271f2] border border-[#a271f2]">Daxil olun</button>
+        </div>
+    </nav>
+    <header class="relative ">
+        
+        <div id="sideBar" class="ease-in duration-[1s] fixed right-[-1000px] top-0 bottom-0 w-full small:max-w-[384px] border-l-[#e7e7e9] border-t-[#e7e7e9] border-l border-t bg-white p-[24px] z-99950">
+            <div class="flex justify-end"><img onclick="sideBariBagla()" class="cursor-pointer" src="../img/xmark.svg" width="14" height="14" alt="close"/></div>
+            <ul class="desk:hidden pt-[24px] pb-[24px] font-[800] text-[14px] font-[Manrope] text-[#300B60] ">
+                <li onclick="etrafli(ul1)" class=" relative cursor-pointer hover:bg-[#f9fafb] rounded-[8px] px-[12px] py-[8px] flex gap-1.5 items-center group"><span class="group-hover:text-[#7d3be2]">Veb sayt</span> <i class="group-hover:text-[#7d3be2] fa-solid text-inherit   fa-angle-down font-bold  text-[14px] "></i>
+                    <ul id="ul1" class="hidden z-30 max-h-[500px] w-full absolute left-0 top-[100%] border-[#e2e8f0] border rounded-[8px] bg-white cursor-pointer overflow-y-scroll overflow-hidden">
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Saytların hazırlanması</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Veb saytlarının hazırlanması</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Hökümət və qeyri-kommersiya saytları</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Hökümət və qeyri-kommersiya saytları</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Kiçik biznes saytları</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Kiçik bizneslər üçün saytlar</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">E-ticarət saytları</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">E-ticarət saytları</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Hüquq firma saytı</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Hüquq firma saytı</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Bloqlar və Şəxsi Vebsayt</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Bloqlar və Şəxsi Vebsayt</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Daşınmaz əmlak veb saytı</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Daşınmaz əmlak veb saytı</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Tibb - Doktor Saytlar</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Tibb Doktor Saytlar</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">WordPress Saytları</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">WordPress Saytları</p>
+                        </li>
+                    </ul>
+                </li>
+                <li onclick="etrafli(ul2)" class=" relative cursor-pointer hover:bg-[#f9fafb] rounded-[8px] px-[12px] py-[8px] flex gap-1.5 items-center group"><span class="group-hover:text-[#7d3be2]">Domen</span> <i class="group-hover:text-[#7d3be2] fa-solid text-inherit   fa-angle-down font-bold  text-[14px] "></i>
+                    <ul id="ul2" class="hidden z-29 max-h-[500px] w-full absolute left-0 top-[100%] border-[#e2e8f0] border rounded-[8px] bg-white cursor-pointer  overflow-hidden">
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Domen</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Etibarlı xidmət</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Pulsuz Domen Qeydiyyatı</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Sürətli qeydiyyat</p>
+                        </li>
+                    </ul>
+                </li>
+                <li onclick="etrafli(ul3)" class=" relative cursor-pointer hover:bg-[#f9fafb] rounded-[8px] px-[12px] py-[8px] flex gap-1.5 items-center group"><span class="group-hover:text-[#7d3be2]">Hostinq</span> <i class="group-hover:text-[#7d3be2] fa-solid text-inherit   fa-angle-down font-bold  text-[14px] "></i>
+                    <ul id="ul3" class="hidden z-28 max-h-[500px] w-full absolute left-0 top-[100%] border-[#e2e8f0] border rounded-[8px] bg-white cursor-pointer  overflow-hidden">
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Veb Hostinq</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">₼10.OO/ay-dan başlayaraq</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">VPS</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">₼15.OO/ay-dan başlayaraq</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Server</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">99.OO/ay-dan başlayaraq</p>
+                        </li>
+                    </ul>
+                </li>
+                <li onclick="etrafli(ul4)" class=" relative cursor-pointer hover:bg-[#f9fafb] rounded-[8px] px-[12px] py-[8px] flex gap-1.5 items-center group"><span class="group-hover:text-[#7d3be2]">Xidmətlər</span> <i class="group-hover:text-[#7d3be2] fa-solid text-inherit   fa-angle-down font-bold  text-[14px] "></i>
+                    <ul id="ul4" class="hidden z-27 max-h-[500px] w-full absolute left-0 top-[100%] border-[#e2e8f0] border rounded-[8px] bg-white cursor-pointer  overflow-hidden">
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Vebsayt sifarişinizi izləyin</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Sifarişinizi asanlıqla izləyin</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] "><a href="calc.htm">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Sayt Kalkulyatoru</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Saytın Qiymətini Öyrən</p>
+                    </a></li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">SEO Xidməti</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Axtarış Sistemi Optimizasiyası</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Mobil Tətbiqlərin Hazırlanması</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Mobil tətbiq xidməti</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Texniki Xidmət</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Texniki Xidmət</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Sosial Media Marketinq</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Sosial Media Marketinq</p>
+                        </li>
+                    </ul>
+                </li>
+                <li onclick="etrafli(ul5)" class=" relative cursor-pointer hover:bg-[#f9fafb] rounded-[8px] px-[12px] py-[8px] flex gap-1.5 items-center group"><span class="group-hover:text-[#7d3be2]">Şirkət</span> <i class="group-hover:text-[#7d3be2] fa-solid text-inherit   fa-angle-down font-bold  text-[14px] "></i>
+                    <ul id="ul5" class="hidden z-26 max-h-[400px] w-full absolute left-0 top-[100%] border-[#e2e8f0] border rounded-[8px] bg-white cursor-pointer overflow-y-scroll overflow-hidden">
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Haqqımızda</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Bizim komanda üzvlərimiz</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Bloq</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Ən son xəbərlər və faydalı məlumatlar</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Bütün StartUplar</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Startupları idarə edin komandamıza qoşulun</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Portfolio</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Hazırladığımız hər bir iş bizim üçün dəyərlidir</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Karyera</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Hazırki vakansiyalarımız</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Freelance</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Sizdə qeydiyyatdan keçməklə freelance işləyə bilərsiz</p>
+                        </li>
+                        <li class="py-[12px] px-[32px] hover:bg-[#f8fafc] ">
+                            <p class="text-[#334155] text-[16px] font-[500] font-[Arial]">Əlaqə Forması</p>
+                            <p class="text-[#64748b] text-[12px] font-[700] font-[Arial]">Əlaqə Saxlayın</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="flex items-center gap-[30px]">
+                <span onclick="daha(currency11,flags11,rotate11,rotate22,valAna2,val22.innerHTML==valAna2.innerHTML?val22:val11,val22.innerHTML==valAna2.innerHTML?val11:val22)" class="flex items-center cursor-pointer relative">
+                    <span id="valAna2" class="text-[#300b60] text-[22px] font-bold  mr-1.5">₼</span>
+                    <i id="rotate11"  class="duration-300 ease-linear text-[#e3e1e1]  fa-solid fa-angle-down font-bold hover:text-[#999999] text-[16px] "></i>
+                    <ul id="currency11" class="bg-white hidden w-[60px] absolute left-0 top-[120%] border border-[#e7e7e9] overflow-hidden rounded-[5px] shadow-[0_0_5px_#e7e7e9]">
+                        <li id="val11" onclick="deyisValyuta(valAna2,this,val22)" class="px-[18px] py-[10px] text-[#300b60] text-[18px] font-bold font-[Manrope]">$</li>
+                        <li id="val22" onclick="deyisValyuta(valAna2,this,val11)" class="px-[18px] py-[10px] text-[#300b60] text-[18px] font-bold font-[Manrope]">₼</li>
+                    </ul>
+                </span>
+                <span onclick="daha(flags11,currency11,rotate22,rotate11,imgAna2,imgLi22.src==imgAna2.src ? bayr22:bayr11,imgLi22.src==imgAna2.src ? bayr11:bayr22)" class="flex items-center cursor-pointer relative">
+                    <img id="imgAna2" src="../img/azFlag.png" width="20" height="16" class=" mr-1.5 "/>
+                    <i id="rotate22" class="duration-300 ease-linear text-[#e3e1e1]  fa-solid fa-angle-down font-bold hover:text-[#999999] text-[16px] "></i>
+                    <ul id="flags11" class="bg-white hidden w-[60px] absolute left-0 top-[120%] border border-[#e7e7e9] overflow-hidden rounded-[5px] shadow-[0_0_5px_#e7e7e9]">
+                        <li id="bayr11" onclick="deyisSekil(imgAna2,imgLi11,bayr22)" class="px-[18px] py-[10px]"><img id="imgLi11" src="../img/usa.png" width="26"/></li>
+                        <li id="bayr22" onclick="deyisSekil(imgAna2,imgLi22,bayr11)" class="px-[18px] py-[10px]"><img id="imgLi22" src="../img/azFlag.png" width="26" /></li>
+                    </ul>
+                </span>
+            </div>
+            <button class="mt-[40px] w-full px-[24px] py-[9px] font-[700] font-[Manrope] rounded-[8px] cursor-pointer text-[white] bg-gradient-to-r from-[#7028e4] to-[#e5b2ca]">Qiymət Təklifi Al</button>
+            <button class="mt-[24px] w-full px-[24px] py-[9px] font-[700] font-[Manrope] rounded-[8px] cursor-pointer text-[#a271f2] border border-[#a271f2]">Daxil olun</button>
+        </div>
+    </header>
+
+    <main  class="relative font-[Manrope]">
+        <div class="bg-[#f5f5f5] py-[24px] px-[8px] w-full row:w-[80%] row:m-auto ">
+            <div class="flex flex-col gap-[8px] row1:gap-[24px] row2:flex-row ">
+                <div class="row2:w-[calc(60%-12px)] p-[16px] bg-white ">
+                    <h1 class="font-[700] max-txt:text-[30px] text-[48px] text-[#1c2434]  mt-[16px] mb-[48px]">Qiymət Təklifi Al</h1>
+                    <div class="flex flex-col gap-[30px] mb-[48px]">
+                        <div class="flex flex-col gap-[15px] ">
+                            <h2 class="text-[#212529] font-[600] text-[18px] ">Statik səhifələr</h2>
+                            <div class="flex flex-col rounded-[6px] overflow-hidden">
+                                <div class="bg-[#f8f8fa] py-[20px] px-[15px] flex flex-col gap-[20px]">
+                                    <div class="flex flex-col gap-[15px]">
+                                        <h2 class="text-[#1c2434] ">Neçə statik səhifə olacaq?</h2>
+                                        <div class="flex gap-[5px]">
+                                            <button class=" text-white text-[14px] rounded-[6px] text-center w-[26px] h-[24px] bg-[#a271f2]">1</button>
+                                            <input id="range1" value="1" oninput="sehifeSayiDeyis(this)" class="w-full" type="range" min="1" max="20" />
+                                            <button class=" text-white text-[14px] rounded-[6px] text-center w-[26px] h-[24px] bg-[#a271f2]">20</button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-[15px] row3:flex-row row3:justify-between row3:items-center">
+                                        <h2 class="text-[#1c2434] ">Dizayn mürəkkəblik:</h2>
+                                        <div class="row3:w-[60%] row3:flex row3:flex-col row3:gap-[20px] row3:justify-center">
+                                            <div class="flex justify-between">
+                                                <h3 class="text-[12px] text-[#1c2434] font-[400] ">Sadə</h3>
+                                                <h3 class="text-[12px] text-[#1c2434] font-[400] ">Orta</h3>
+                                                <h3 class="text-[12px] text-[#1c2434] font-[400] ">Xüsusi</h3>
+                                            </div>
+                                            <input id="range2" oninput="sehifeKeyfDeyis(this)" value="0" class="w-full " min="0" max="2" type="range" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-[#dee7f1] py-[20px] px-[15px] flex items-center justify-between">
+                                    <h2 class="text-[#285a70] ">Xərc:</h2>
+                                    <h1 class="text-[#a271f2] max-txt:text-[18px] text-[22px] font-[600] "><span id="sehifeSayi">1 səhifə</span> / <span class="sehUmXerci">₼ 100</span></h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-[15px] ">
+                            <h2 class="text-[#212529] font-[600] text-[18px] ">Veb sayt əlavələri</h2>
+                            <div class="flex flex-col rounded-[6px] overflow-hidden">
+                                <div class="bg-[#f8f8fa] py-[20px] px-[15px]">
+                                    <div class="flex flex-col gap-[20px] desk:flex-row ">
+                                        <div class="desk:w-[50%] flex flex-col gap-[20px]">
+                                            <div class="flex items-center  justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Bloq</h2>
+                                                <div onclick="Toggle(this,1)"  class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative  "><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Üzv girişi / Profillər</h2>
+                                                <div onclick="Toggle(this,2)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Responsive</h2>
+                                                <div onclick="Toggle(this,3)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Forum</h2>
+                                                <div onclick="Toggle(this,4)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Mesajlaşma</h2>
+                                                <div onclick="Toggle(this,5)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Canlı Söhbət</h2>
+                                                <div onclick="Toggle(this,6)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Qalereya</h2>
+                                                <div onclick="Toggle(this,7)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="desk:w-[50%] flex flex-col gap-[20px]">
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Əlaqə Forması</h2>
+                                                <div onclick="Toggle(this,8)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Saytda Axtarış</h2>
+                                                <div onclick="Toggle(this,9)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Xəritə Məlumatı / Geolocaton</h2>
+                                                <div onclick="Toggle(this,10)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Rezervasyon</h2>
+                                                <div onclick="Toggle(this,11)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Sosial Media inteqrasiyası</h2>
+                                                <div onclick="Toggle(this,12)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Analitika / İzləmə</h2>
+                                                <div onclick="Toggle(this,13)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="cursor-pointer flex items-center justify-between">
+                                                <h2 class="text-[#111827] font-[700] text-[14px] ">Admin Panel</h2>
+                                                <div onclick="Toggle(this,14)" class="duration-[1s] ease-in-out w-[44px] p-[2px] h-[24px] rounded-[20px] bg-[#e5e7eb]">
+                                                    <div class="relative"><div class="absolute left-0  bg-white border border-[#d1d5db] w-[20px] h-[20px] rounded-[50%]"></div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-[#dee7f1] py-[20px] px-[15px] flex items-center justify-between">
+                                    <h2 class="text-[#285a70] ">Xərc:</h2>
+                                    <h1 class="text-[#a271f2] text-[22px] font-[600] elavelerX">₼ 0</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-[15px] ">
+                            <h2 class="text-[#212529] font-[600] text-[18px] ">Axtarış motorunun optimallaşdırılması</h2>
+                            <div class="flex flex-col rounded-[6px] overflow-hidden">
+                                <div class="bg-[#f8f8fa] py-[20px] px-[15px] flex flex-col gap-[20px]">
+                                    <div class="flex gap-[15px] cursor-pointer">
+                                        <div onclick="Toggle2(this,1)" class="duration-[.2s] ease-in-out flex justify-center items-center border border-[#9ca3af] w-[24px] h-[24px] rounded-[8px]">
+                                            <i  class="hidden text-white fa-solid fa-check"></i>
+                                        </div>
+                                        <p class="text-[#374151] font-[400] ">Başlıq & Meta</p>
+                                    </div>
+                                    <div class="flex gap-[15px] cursor-pointer">
+                                        <div onclick="Toggle2(this,2)" class="duration-[.2s] ease-in-out flex justify-center items-center border border-[#9ca3af] w-[24px] h-[24px] rounded-[8px]">
+                                            <i  class="hidden text-white fa-solid fa-check"></i>
+                                        </div>
+                                        <p class="text-[#374151] font-[400] ">Açar söz</p>
+                                    </div>
+                                    <div class="flex gap-[15px] cursor-pointer">
+                                        <div onclick="Toggle2(this,3)" class="duration-[.2s] ease-in-out flex justify-center items-center border border-[#9ca3af] w-[24px] h-[24px] rounded-[8px]">
+                                            <i  class="hidden text-white fa-solid fa-check"></i>
+                                        </div>
+                                        <p class="text-[#374151] font-[400] ">+20 Qabaqcıl Texnika</p>
+                                    </div>
+                                    <div class="flex gap-[15px] cursor-pointer">
+                                        <div onclick="Toggle2(this,4)" class="duration-[.2s] ease-in-out flex justify-center items-center border border-[#9ca3af] w-[24px] h-[24px] rounded-[8px]">
+                                            <i  class="hidden text-white fa-solid fa-check"></i>
+                                        </div>
+                                        <p class="text-[#374151] font-[400] ">Başlıq Teqləri</p>
+                                    </div>
+                                    <div class="flex gap-[15px] cursor-pointer">
+                                        
+                                            <div onclick="Toggle2(this,5)" class="duration-[.2s] ease-in-out flex justify-center items-center border border-[#9ca3af] w-[24px] h-[24px] rounded-[8px]">
+                                                <i class=" text-white fa-solid fa-check hidden"></i>
+                                            </div>
+                                        
+                                        <p class="text-[#374151] font-[400] ">Sitemap</p>
+                                    </div>
+                                </div>
+                                <div class="bg-[#dee7f1] py-[20px] px-[15px] flex items-center justify-between">
+                                    <h2 class="text-[#285a70] ">Xərc:</h2>
+                                    <h1 class="text-[#a271f2] text-[22px] font-[600] motorXerc">₼ 0</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-[15px] ">
+                            <h2 class="text-[#212529] font-[600] text-[18px] ">Elektron ticarət əlavələri</h2>
+                            <div class="flex flex-col rounded-[6px] overflow-hidden">
+                                <div class=" bg-[#f8f8fa] py-[20px] px-[15px] flex flex-col gap-[20px]">
+                                    <div class="cursor-pointer flex items-center justify-between">
+                                        <h2 class="text-[#111827] font-[700] text-[14px] ">Ödəniş</h2>
+                                        <label for="t1" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative  ">
+                                                <input  onclick="Toggle3(this,1)" id="t1" type="checkbox" class="hidden peer">
+                                                <div class="w-[44px] bg-[#e5e7eb] h-6 rounded-full shadow-inner dark:bg-gray-600 peer-checked:bg-violet-600"></div>
+                                                <div
+                                                    class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-white dark:bg-gray-100">
+                                                </div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="cursor-pointer flex items-center justify-between">
+                                        <h2 class="text-[#111827] font-[700] text-[14px] ">Səbət</h2>
+                                        <label for="t2" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative  ">
+                                                <input  onclick="Toggle3(this,2)" id="t2" type="checkbox" class="hidden peer">
+                                                <div class="w-[44px] bg-[#e5e7eb] h-6 rounded-full shadow-inner dark:bg-gray-600 peer-checked:bg-violet-600"></div>
+                                                <div
+                                                    class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-white dark:bg-gray-100">
+                                                </div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="cursor-pointer flex items-center justify-between">
+                                        <h2 class="text-[#111827] font-[700] text-[14px] ">Məhsullar</h2>
+                                        <label for="t3" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative  ">
+                                                <input  onclick="Toggle3(this,3)" id="t3" type="checkbox" class="hidden peer">
+                                                <div class="w-[44px] bg-[#e5e7eb] h-6 rounded-full shadow-inner dark:bg-gray-600 peer-checked:bg-violet-600"></div>
+                                                <div
+                                                    class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-white dark:bg-gray-100">
+                                                </div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="cursor-pointer flex items-center justify-between">
+                                        <h2 class="text-[#111827] font-[700] text-[14px] ">Bəyəndiklərim</h2>
+                                        <label for="t4" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative  ">
+                                                <input  onclick="Toggle3(this,4)" id="t4" type="checkbox" class="hidden peer">
+                                                <div class="w-[44px] bg-[#e5e7eb] h-6 rounded-full shadow-inner dark:bg-gray-600 peer-checked:bg-violet-600"></div>
+                                                <div
+                                                    class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-white dark:bg-gray-100">
+                                                </div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="cursor-pointer flex items-center justify-between">
+                                        <h2 class="text-[#111827] font-[700] text-[14px] ">Filtr</h2>
+                                        <label for="t5" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative  ">
+                                                <input  onclick="Toggle3(this,5)" id="t5" type="checkbox" class="hidden peer">
+                                                <div class="w-[44px] bg-[#e5e7eb] h-6 rounded-full shadow-inner dark:bg-gray-600 peer-checked:bg-violet-600"></div>
+                                                <div
+                                                    class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-white dark:bg-gray-100">
+                                                </div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="cursor-pointer flex items-center justify-between">
+                                        <h2 class="text-[#111827] font-[700] text-[14px] ">Məhsul Haqqında</h2>
+                                        <label for="t6" class="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-800">
+                                            <span class="relative  ">
+                                                <input  onclick="Toggle3(this,6)" id="t6" type="checkbox" class="hidden peer">
+                                                <div class="w-[44px] bg-[#e5e7eb] h-6 rounded-full shadow-inner dark:bg-gray-600 peer-checked:bg-violet-600"></div>
+                                                <div
+                                                    class="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-white dark:bg-gray-100">
+                                                </div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="bg-[#dee7f1] py-[20px] px-[15px] items-center flex justify-between">
+                                    <h2 class="text-[#285a70] ">Xərc:</h2>
+                                    <h1 class="text-[#a271f2] text-[22px] font-[600] ticaretXerc">₼ 0</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-[15px] ">
+                            <h2 class="text-[#212529] font-[600] text-[18px] ">Logo dizaynı</h2>
+                            <div class="flex flex-col rounded-[6px] overflow-hidden">
+                                <div class="bg-[#f8f8fa] py-[20px] px-[15px] flex flex-col gap-[15px]">
+                                    <div class="flex justify-between text-[12px] text-[#1c2434]">
+                                        <h2>Ehtiyac yoxdur</h2>
+                                        <h2>Sadə</h2>
+                                        <h2>Xüsusi</h2>
+                                    </div>
+                                    <input id="range3" value="0" oninput="logoDizayniDeyis(this)" type="range" min="0" max="2" />
+                                </div>
+                                <div class="bg-[#dee7f1] py-[20px] px-[15px] items-center flex justify-between">
+                                    <h2 class="text-[#285a70] ">Cost:</h2>
+                                    <h1 class="text-[#a271f2] text-[22px] font-[600] logoDizUmX" >₼ 0</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class=" flex row2:w-[calc(40%-12px)] flex-col gap-[20px]">
+                    <div class="sticky top-0 flex flex-col gap-[20px]">
+                        <div class="flex flex-col bg-white">
+                            <div class="p-[32px] max-txt:p-[16px] flex flex-col gap-4">
+                                <h2 class="text-[#1c2434] font-[400] ">Təklifiniz</h2>
+                                <div class=" flex justify-between">
+                                    <h3 class="text-[#8b8b9a] ">Statik səhifələr:</h3>
+                                    <h2  class="sehUmXerci text-[#a271f2] font-[700] text-[18px] ">₼ 100</h2>
+                                </div>
+                                <div class=" flex justify-between">
+                                    <h3 class="text-[#8b8b9a] ">Əlavələr:</h3>
+                                    <h2 class="text-[#a271f2] font-[700] text-[18px] elavelerX">₼ 0</h2>
+                                </div>
+                                <div class=" flex justify-between">
+                                    <h3 class="text-[#8b8b9a] ">SEO:</h3>
+                                    <h2 class="text-[#a271f2] font-[700] text-[18px] motorXerc">₼ 0</h2>
+                                </div>
+                                <div class=" flex justify-between">
+                                    <h3 class="text-[#8b8b9a] ">E-ticarət:</h3>
+                                    <h2 class="text-[#a271f2] font-[700] text-[18px] ticaretXerc">₼ 0</h2>
+                                </div>
+                                <div class=" flex justify-between">
+                                    <h3 class="text-[#8b8b9a] ">Logo dizaynı:</h3>
+                                    <h2 class="text-[#a271f2] font-[700] text-[18px] logoDizUmX">₼ 0</h2>
+                                </div>
+    
+                                <div class="bg-[#8b8b9a] h-[.5px] w-full"></div>
+    
+                                <div class=" flex justify-between">
+                                    <h2 class="font-[700] text-[#8b8b9a] text-[16px] ">Qeyd :</h2>
+                                    <div class="text-[16px] max-txt:text-[14px]"><span class="text-[#8b8b9a]">Minimum sayt qiyməti</span> <span class="text-[#a271f2]">₼ 450</span></div>
+                                </div>
+                            </div>
+                            <div class="bg-[#a271f2] max-txt:p-[16px]  max-txt:text-[16px] text-[24px] p-[32px] text-white flex justify-between">
+                                <h2>Ümumi təxmini dəyəri:</h2>
+                                <h2 class="font-[600] hamisi">₼ 450</h2>
+                            </div>
+                        </div>
+                        <button class="bg-[#2bc48a] font-[700] cursor-pointer rounded-[6px] p-[16px] text-white">Saytınızı İndi Sifariş Edin</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="font-[Manrope] bg-[#faf4ff] flex justify-center mt-[50px] border-t-[#e2e8f0] border-t">
+        <div class="w-[95%] row2:w-[85%] desk1:row2:w-[85%] row2:relative  ">
+            <div><img width="200" class=" mt-[100px] mb-[50px]" src="../img/saytaz.svg" /></div>
+            <div class="flex row2:flex-row row2:justify-between flex-col gap-[40px] ">
+                <div class=" flex flex-col gap-[50px]">
+                    <p class="text-[#4a2182] max-w-[395px] text-[16px] font-[400]">Sayt.az - Web saytların hazırlanması, Domain, Hosting satışı,
+                        SEO, SMM va texniki xidmətlər təklif edir.</p>
+                    <div class="flex flex-col gap-[16px]">
+                        <h2 class="font-[700] text-[#30155d]">Bizi izləyin:</h2>
+                        <div class="flex gap-[20px] items-start">
+                            <i class="text-[#a271f2] cursor-pointer text-[32px] row:text-[48px] font-[700] fa-brands fa-facebook"></i>
+                            <i class="text-[#a271f2] cursor-pointer text-[32px] row:text-[48px] font-[700] fa-brands fa-instagram"></i>
+                            <i class="text-[#a271f2] cursor-pointer text-[32px] row:text-[48px] font-[700] fa-brands fa-whatsapp"></i>
+                            <i class="text-[#a271f2] cursor-pointer text-[32px] row:text-[48px] font-[700] fa-brands fa-linkedin-in"></i>
+                            <i class="text-[#a271f2] cursor-pointer text-[32px] row:text-[48px] font-[700] fa-brands fa-youtube"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex row2:absolute row2:left-[450px] orta:left-[550px] lef:left-[700px] desk1:left-[900px] row2:top-[158px] row:flex-row flex-col gap-[50px]">
+                    <div class="flex flex-col gap-[15px] ">
+                        <h1 class="text-[#300b60] font-[700] text-[24px] ">HOSTİNQ & DOMEN</h1>
+                        <h2 class="text-[#4a2182] font-[500] text-[18px] ">Domen</h2>
+                        <h2 class="text-[#4a2182] font-[500] text-[18px] ">Veb Hostinq</h2>
+                        <h2 class="text-[#4a2182] font-[500] text-[18px] ">VPS Hostinq</h2>
+                        <h2 class="text-[#4a2182] font-[500] text-[18px] ">Server</h2>
+                    </div>
+                    <div class="flex flex-col gap-[15px]">
+                        <h1 class="text-[#300b60] font-[700] text-[24px] ">ŞİRKƏT</h1>
+                        <h2 class="text-[#4a2182] font-[500] text-[18px] ">Haqqımızda</h2>
+                        <h2 class="text-[#4a2182] font-[500] text-[18px] ">Əlaqə</h2>
+                        <h2 class="text-[#4a2182] font-[500] text-[18px] ">Bloq</h2>
+                        <h2 class="text-[#4a2182] font-[500] text-[18px] ">Portfolio</h2>
+                    </div>
+                </div>
+            </div>
+            <hr class="text-[#e2e8f0] h-[1px] mt-[20px] row2:mt-[80px]" />
+            <div class="row2:flex  row2:justify-between">
+                <div class="flex row2:order-3 flex-col row:flex-row row:gap-0  gap-[15px] py-[15px] row2:py-[50px] row:text-[12px] mid:text-[16px]">
+                    <div class="flex  gap-[10px] row:pr-[10px] row:border-r row:border-r-[#e2e8f0]  ">
+                        <img width="16" src="../img/call.svg" />
+                        <a href="tel:0703300004" class="text-[#4a2182] text-[16px] row:text-[14px] mid:text-[16px]">+(99470) 330-00-04</a>
+                    </div>
+                    <div class="flex gap-[10px] row:pl-[10px]">
+                        <img width="16" src="../img/email.svg" />
+                        <a class="text-[#4a2182] text-[16px] row:text-[14px] mid:text-[16px]"  href="mailto:support@sayt.az">support@sayt.az</a>
+                    </div>
+                </div>
+                <hr class="row:hidden text-[#e2e8f0] h-[1px] " />
+                <p class="py-[15px] row2:py-[50px]   text-[#4a2182] text-[16px] row:text-[14px] mid:text-[16px]">© Copyright 2004-2025 © Sayt.az . Bütün Hüquqlar Qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/header.js"></script>
+    <script src="../js/fixed.js"></script>
+    <script src="../js/calc.js"></script>
+</body>
+</html>
