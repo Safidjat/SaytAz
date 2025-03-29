@@ -3016,6 +3016,11 @@
       }
     }
   }
+  .max-sv\:hidden {
+    @media (width < 986px) {
+      display: none;
+    }
+  }
   .max-mid\:mt-\[50px\] {
     @media (width < 970px) {
       margin-top: 50px;
@@ -3505,6 +3510,16 @@
   .mid\:text-\[16px\] {
     @media (width >= 970px) {
       font-size: 16px;
+    }
+  }
+  .sv\:w-\[40\%\] {
+    @media (width >= 986px) {
+      width: 40%;
+    }
+  }
+  .sv\:w-\[40\] {
+    @media (width >= 986px) {
+      width: 40;
     }
   }
   .sv\:w-\[45\%\] {
