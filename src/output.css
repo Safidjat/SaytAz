@@ -457,6 +457,9 @@
     @media (width >= 1117px) {
       max-width: 1117px;
     }
+    @media (width >= 1189px) {
+      max-width: 1189px;
+    }
     @media (width >= 1220px) {
       max-width: 1220px;
     }
@@ -543,6 +546,9 @@
     }
     @media (width >= 1117px) {
       max-width: 1117px !important;
+    }
+    @media (width >= 1189px) {
+      max-width: 1189px !important;
     }
     @media (width >= 1220px) {
       max-width: 1220px !important;
@@ -3402,6 +3408,16 @@
       gap: 24px;
     }
   }
+  .temp1\:p-\[18px\] {
+    @media (width >= 835px) {
+      padding: 18px;
+    }
+  }
+  .temp1\:text-\[16px\] {
+    @media (width >= 835px) {
+      font-size: 16px;
+    }
+  }
   .row2\:absolute {
     @media (width >= 840px) {
       position: absolute;
@@ -3520,21 +3536,6 @@
   .sv\:w-\[40\%\] {
     @media (width >= 986px) {
       width: 40%;
-    }
-  }
-  .sv\:w-\[40\] {
-    @media (width >= 986px) {
-      width: 40;
-    }
-  }
-  .sv\:w-\[45\%\] {
-    @media (width >= 986px) {
-      width: 45%;
-    }
-  }
-  .sv\:w-\[50\%\] {
-    @media (width >= 986px) {
-      width: 50%;
     }
   }
   .desk\:flex {
@@ -3671,6 +3672,11 @@
       @media (width < 1117px) {
         font-size: 12px;
       }
+    }
+  }
+  .orta2\:text-\[24px\] {
+    @media (width >= 1189px) {
+      font-size: 24px;
     }
   }
   .lef\:left-\[700px\] {
