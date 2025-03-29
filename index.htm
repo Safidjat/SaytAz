@@ -7,6 +7,8 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <link rel="stylesheet" href="src/input.css" />
     <link rel="stylesheet" href="src/output.css" />
+    <link rel="stylesheet" href="src/swiper.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -1034,64 +1036,58 @@
             </div>
         </div>
 
-        <div class="py-[100px] w-[95%] m-auto font-[Manrope]">
-            <div class="flex flex-col gap-[40px] items-center">
-                <div class="flex flex-col gap-[15px] items-center">
-                    <h1 class="text-center text-[#300b60] font-[700] row:text-[32px] text-[22px]">Müştərilərimizin Rəyləri</h1>
-                    <h2 class="text-center text-[#300b60] font-[600] row:text-[20px] text-[16px]">Müştərilərin fikirləri</h2>
-                </div>
-                <div class=" h-[420px] w-[98%] p-[10px] border rounded-[8px] border-[#e5e7eb]">
-                    <div class="h-full w-full swiper mySwiper">
-                        <div class="swiper-wrapper flex">
-                          <div class="swiper-slide flex items-center justify-center">
-                                <div class="w-[80%] m-auto max-txt:mt-[70px] mt-[130px] flex items-center   flex-col gap-[20px]">
-                                    <h1 class="text-center text-[#4a2182] font-[600] text-[20px]">Müştərilərdən müsbət rəy</h1>
-                                    <h2 class="text-center text-[#64748b] font-[500] text-[16px]">Sayt.az saytımın hazırlanmasında gözləntilərimi aşdı. Mənim istəklərimi
-                                        mükəmməl şəkildə əks etdirdi.</h2>
-                                    <div class="flex gap-[15px] items-center justify-center">
-                                        <img class="max-txt:w-[30px] max-txt:h-[30px] w-[50px] h-[50px] rounded-full" src="img/ceoXanim.png" />
-                                        <div class="flex flex-col gap-[5px] items-start">
-                                            <h1 class="text-[#334155] font-[600] max-txt:text-[14px] text-[16px]">Seljan Novruz</h1>
-                                            <h2 class="max-txt:text-[14px] text-[16px] font-[500] text-[#64748b]">CEO</h2>
-                                        </div>
-                                    </div>
+        <div id="swiper1" class="py-[100px] w-[95%] m-auto font-[Manrope] flex flex-col gap-[40px] items-center">
+            <div class="flex flex-col gap-[15px] items-center">
+                <h1 class="text-center text-[#300b60] font-[700] row:text-[32px] text-[22px]">Müştərilərimizin Rəyləri</h1>
+                <h2 class="text-center text-[#300b60] font-[600] row:text-[20px] text-[16px]">Müştərilərin fikirləri</h2>
+            </div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide flex !items-center !justify-center">
+                        <div class=" w-[80%]  m-auto max-txt:mt-[70px] mt-[100px] flex items-center   flex-col gap-[20px]">
+                            <h1 class="text-center text-[#4a2182] font-[600] text-[20px]">Müştərilərdən müsbət rəy</h1>
+                            <h2 class="text-center text-[#64748b] font-[500] text-[16px]">Sayt.az saytımın hazırlanmasında gözləntilərimi aşdı. Mənim istəklərimi
+                                mükəmməl şəkildə əks etdirdi.</h2>
+                            <div class="flex gap-[15px] items-center justify-center">
+                                <img class="max-txt:w-[30px] max-txt:h-[30px] w-[50px] h-[50px] rounded-full" src="img/ceoXanim.png" />
+                                <div class="flex flex-col gap-[5px] items-start">
+                                    <h1 class="text-[#334155] font-[600] max-txt:text-[14px] text-[16px]">Seljan Novruz</h1>
+                                    <h2 class="max-txt:text-[14px] text-[16px] font-[500] text-[#64748b]">CEO</h2>
                                 </div>
-                          </div>
-                          <div class="swiper-slide flex items-center justify-center">
-                                <div class="w-[80%] m-auto max-txt:mt-[70px] mt-[130px] flex items-center   flex-col gap-[20px]">
-                                    <h1 class="text-center text-[#4a2182] font-[600] text-[20px]">Müştərilərdən müsbət rəy</h1>
-                                    <h2 class="text-center text-[#64748b] font-[500] text-[16px]">Veb saytımı hazırlamaq üçün Sayt.az-ı seçmək biznesim üçün verdiyim ən yaxşı qarar idi.</h2>
-                                    <div class="flex gap-[15px] items-center justify-center">
-                                        <img class="max-txt:w-[30px] max-txt:h-[30px] w-[50px] h-[50px] rounded-full" src="img/lower.png" />
-                                        <div class="flex flex-col gap-[5px] items-start">
-                                            <h1 class="text-[#334155] font-[600] max-txt:text-[14px] text-[16px]">Hikmat Taghiyev</h1>
-                                            <h2 class="max-txt:text-[14px] text-[16px] font-[500] text-[#64748b]">Accountant</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                          </div>
-                          <div class="swiper-slide flex items-center justify-center">
-                                <div class="w-[80%] m-auto max-txt:mt-[50px] mt-[130px] flex items-center   flex-col gap-[20px]">
-                                    <h1 class="text-center text-[#4a2182] font-[600] text-[20px]">Müştərilərdən müsbət rəy</h1>
-                                    <h2 class="text-center text-[#64748b] font-[500] text-[16px]">Sayt.az komandası tərəfindən hazırlanan ev alqı-satqısı saytı, gözləntilərimi tamamilə
-                                        doğrultdu. Sayt.az-a dəyərli xidmətləri üçün təşəkkür ediram.</h2>
-                                    <div class="flex gap-[15px] items-center justify-center">
-                                        <img class="max-txt:w-[30px] max-txt:h-[30px] w-[50px] h-[50px] rounded-full" src="img/seoKisi.png" />
-                                        <div class="flex flex-col gap-[5px] items-start">
-                                            <h1 class="text-[#334155] font-[600] max-txt:text-[14px] text-[16px]">Seljan Novruz</h1>
-                                            <h2 class="max-txt:text-[14px] text-[16px] font-[500] text-[#64748b]">CEO</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                          </div>
+                            </div>
                         </div>
-                        <div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="swiper-slide flex items-center justify-center">
+                        <div class="w-[80%] m-auto max-txt:mt-[70px] mt-[100px] flex items-center   flex-col gap-[20px]">
+                            <h1 class="text-center text-[#4a2182] font-[600] text-[20px]">Müştərilərdən müsbət rəy</h1>
+                            <h2 class="text-center text-[#64748b] font-[500] text-[16px]">Veb saytımı hazırlamaq üçün Sayt.az-ı seçmək biznesim üçün verdiyim ən yaxşı qarar idi.</h2>
+                            <div class="flex gap-[15px] items-center justify-center">
+                                <img class="max-txt:w-[30px] max-txt:h-[30px] w-[50px] h-[50px] rounded-full" src="img/lower.png" />
+                                <div class="flex flex-col gap-[5px] items-start">
+                                    <h1 class="text-[#334155] font-[600] max-txt:text-[14px] text-[16px]">Hikmat Taghiyev</h1>
+                                    <h2 class="max-txt:text-[14px] text-[16px] font-[500] text-[#64748b]">Accountant</h2>
+                                </div>
+                            </div>
                         </div>
-                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="swiper-slide flex items-center justify-center">
+                        <div class="w-[80%] m-auto max-txt:mt-[50px] mt-[130px] flex items-center   flex-col gap-[20px]">
+                            <h1 class="text-center text-[#4a2182] font-[600] text-[20px]">Müştərilərdən müsbət rəy</h1>
+                            <h2 class="text-center text-[#64748b] font-[500] text-[16px]">Sayt.az komandası tərəfindən hazırlanan ev alqı-satqısı saytı, gözləntilərimi tamamilə
+                                doğrultdu. Sayt.az-a dəyərli xidmətləri üçün təşəkkür ediram.</h2>
+                            <div class="flex gap-[15px] items-center justify-center">
+                                <img class="max-txt:w-[30px] max-txt:h-[30px] w-[50px] h-[50px] rounded-full" src="img/seoKisi.png" />
+                                <div class="flex flex-col gap-[5px] items-start">
+                                    <h1 class="text-[#334155] font-[600] max-txt:text-[14px] text-[16px]">Bahman Ahmadli</h1>
+                                    <h2 class="max-txt:text-[14px] text-[16px] font-[500] text-[#64748b]">CEO</h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
 
@@ -1232,22 +1228,9 @@
     <script src="js/main.js"></script>
 
      <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-        cssMode: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        mousewheel: true,
-        keyboard: true,
-        });
-    </script>
+     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/swiper.js"></script>
+
 </body>
 
 </html>
