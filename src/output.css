@@ -3091,6 +3091,11 @@
       top: calc(var(--spacing) * 0);
     }
   }
+  .max-smallest2\:w-\[95\%\] {
+    @media (width < 346px) {
+      width: 95%;
+    }
+  }
   .max-smallest2\:max-w-\[97\%\] {
     @media (width < 346px) {
       max-width: 97%;
