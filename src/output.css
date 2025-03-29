@@ -596,6 +596,9 @@
   .mt-\[130px\] {
     margin-top: 130px;
   }
+  .mr-1 {
+    margin-right: calc(var(--spacing) * 1);
+  }
   .mr-1\.5 {
     margin-right: calc(var(--spacing) * 1.5);
   }
@@ -634,6 +637,9 @@
     display: block;
     -webkit-box-orient: horizontal;
     -webkit-line-clamp: unset;
+  }
+  .\!flex {
+    display: flex !important;
   }
   .block {
     display: block;
@@ -808,6 +814,9 @@
   }
   .min-h-screen {
     min-height: 100vh;
+  }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -1308,6 +1317,9 @@
   }
   .justify-items-stretch {
     justify-items: stretch;
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
   }
   .gap-1\.5 {
     gap: calc(var(--spacing) * 1.5);
@@ -2038,8 +2050,14 @@
   .py-\[100px\] {
     padding-block: 100px;
   }
+  .pt-0 {
+    padding-top: calc(var(--spacing) * 0);
+  }
   .pt-0\.5 {
     padding-top: calc(var(--spacing) * 0.5);
+  }
+  .pt-1 {
+    padding-top: calc(var(--spacing) * 1);
   }
   .pt-1\.5 {
     padding-top: calc(var(--spacing) * 1.5);
@@ -3487,6 +3505,16 @@
   .mid\:text-\[16px\] {
     @media (width >= 970px) {
       font-size: 16px;
+    }
+  }
+  .sv\:w-\[45\%\] {
+    @media (width >= 986px) {
+      width: 45%;
+    }
+  }
+  .sv\:w-\[50\%\] {
+    @media (width >= 986px) {
+      width: 50%;
     }
   }
   .desk\:flex {
